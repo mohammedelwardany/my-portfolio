@@ -3,6 +3,31 @@ import Link from "next/link";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import siteConfig from "../../config.json";
 
+interface NavItem {
+  name: string;
+  href: string;
+}
+
+interface StatItem {
+  value: string;
+  label: string;
+  icon: string;
+}
+
+interface ProjectItem {
+  id: number;
+  title: string;
+  category: string;
+  image: string;
+  link?: string;
+}
+
+interface TimelineItem {
+  year: string;
+  title: string;
+  description: string;
+}
+
 export default function Home() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -15,7 +40,7 @@ export default function Home() {
         </div>
 
         <div className="hidden md:flex items-center justify-center gap-12 text-sm font-medium text-textMain flex-[2]">
-          {siteConfig.nav.map((item: any, idx: number) => (
+          {siteConfig.nav.map((item: NavItem, idx: number) => (
             <a key={idx} href={item.href} className="hover:text-primary transition-colors whitespace-nowrap">
               {item.name}
             </a>
@@ -90,7 +115,7 @@ export default function Home() {
       {/* Services Section */}
       <section id="services" className="scroll-mt-20">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 py-12 border-y border-card/50">
-          {siteConfig.stats.map((stat: any, idx: number) => (
+          {siteConfig.stats.map((stat: StatItem, idx: number) => (
             <div key={idx} className="bg-card p-8 rounded-xl flex flex-col items-center justify-center text-center group hover:-translate-y-2 transition-transform duration-300 border border-transparent hover:border-primary/20 shadow-lg">
               <div className="w-12 h-12 bg-background rounded-full flex items-center justify-center text-primary mb-4 group-hover:scale-110 transition-transform">
                 <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -116,7 +141,7 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {siteConfig.portfolio.projects.map((project: any) => (
+          {siteConfig.portfolio.projects.map((project: ProjectItem) => (
             <Link key={project.id} href={project.link || "#"} className="group relative rounded-2xl overflow-hidden bg-card aspect-square border border-card/50 hover:border-primary/30 transition-colors block">
               <Image
                 src={project.image}
@@ -153,7 +178,7 @@ export default function Home() {
           <div className="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-card -translate-y-1/2"></div>
           
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
-            {siteConfig.experiences.timeline.map((exp: any, idx: number) => (
+            {siteConfig.experiences.timeline.map((exp: TimelineItem, idx: number) => (
               <div key={idx} className="flex flex-col items-center group">
                 <div className="bg-card px-4 py-2 rounded-full text-sm font-medium text-textMuted mb-6 border border-card/50 group-hover:text-primary group-hover:border-primary/30 transition-colors">
                   {exp.year}
