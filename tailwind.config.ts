@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import siteConfig from "./config.json";
 
 const config: Config = {
   content: [
@@ -9,8 +10,11 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        background: siteConfig.theme.colors.background,
+        card: siteConfig.theme.colors.card,
+        primary: siteConfig.theme.colors.primary,
+        textMain: siteConfig.theme.colors.textMain,
+        textMuted: siteConfig.theme.colors.textMuted,
       },
     },
   },

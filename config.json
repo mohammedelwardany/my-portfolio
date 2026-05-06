@@ -1,0 +1,135 @@
+{
+  "theme": {
+    "colors": {
+      "background": "#121021",
+      "card": "#1b1830",
+      "primary": "#ff4d6d",
+      "textMain": "#ffffff",
+      "textMuted": "#9ca3af"
+    }
+  },
+  "nav": [
+    {
+      "name": "About Me",
+      "href": "#about"
+    },
+    {
+      "name": "Services",
+      "href": "#services"
+    },
+    {
+      "name": "Portfolio",
+      "href": "#portfolio"
+    },
+    {
+      "name": "Blog",
+      "href": "#blog"
+    },
+    {
+      "name": "Contact Us",
+      "href": "#contact"
+    }
+  ],
+  "personal": {
+    "name": "Mohammed El-Wardany",
+    "role": "Full Stack Developer",
+    "description": "I am a full-stack developer with a passion for building innovative and user-friendly web applications. I have experience in a wide range of technologies, including React, Node.js, Python, and more. I am a quick learner and am always looking to expand my skill set.",
+    "avatar": "/avatarv2.png",
+    "cvPath": "/my-cv.pdf",
+    "socials": {
+      "linkedin": "https://linkedin.com/in/mohammedelwardany",
+      "github": "https://github.com/mohammedelwardany"
+    }
+  },
+  "stats": [
+    {
+      "value": "01",
+      "label": "Awards",
+      "icon": "award"
+    },
+    {
+      "value": "10+",
+      "label": "Clients",
+      "icon": "users"
+    },
+    {
+      "value": "03",
+      "label": "Years Experience",
+      "icon": "briefcase"
+    },
+    {
+      "value": "10+",
+      "label": "Projects",
+      "icon": "folder"
+    }
+  ],
+  "portfolio": {
+    "title": "Portfolio",
+    "description": "Here are some of my favorite projects. Each project includes a description of the problem I was solving, the technologies I used, and the results I achieved.",
+    "projects": [
+      {
+        "id": 1,
+        "title": "PM Academy",
+        "category": "PMP Courses Platform and Exam Semulation",
+        "image": "/pm-academy.jpg",
+        "link": "https://pm-academy.org/"
+      },
+      {
+        "id": 2,
+        "title": "H2A Medical Solutions",
+        "category": "Philops Patener Medical Equipment Store and Maintenance",
+        "image": "/h2a-midical-solutions.jpg",
+        "link": "https://www.h2amedics.com/"
+      },
+      {
+        "id": 3,
+        "title": "Teeba Digital Transformation",
+        "category": "Software and Cloud Solutions Provider",
+        "image": "/teeba-digital-transformation.jpg",
+        "link": "https://teebasystems.com.eg/"
+      },
+      {
+        "id": 4,
+        "title": "Quantum IT Solutions",
+        "category": "Software and Hardware Solutions Provider",
+        "image": "/quantum.jpg",
+        "link": "https://quantumexperment.vercel.app/"
+      }
+    ]
+  },
+  "experiences": {
+    "title": "My Experiences",
+    "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.",
+    "timeline": [
+      {
+        "year": "2021-2026",
+        "title": "Freelance Developer",
+        "description": "Building web applications for clients across various industries."
+      },
+      {
+        "year": "2023-2024",
+        "title": "Front End Developer",
+        "description": "Front End Developer at ERSAA Group."
+      },
+      {
+        "year": "2024-present",
+        "title": "Satellite Operations Engineer",
+        "description": "Satellite Operations Engineer at EGSA (Egyptian Space Agency)."
+      },
+      {
+        "year": "2025-present",
+        "title": "Software Engineer",
+        "description": "Software Engineer at EGSA (Egyptian Space Agency)."
+      }
+    ]
+  },
+  "contact": {
+    "title": "Contact Us",
+    "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.",
+    "info": {
+      "phone": "+201013465050",
+      "email": "mohammedelwardany2023@gmail.com",
+      "address": "cairo, egypt"
+    }
+  }
+}
