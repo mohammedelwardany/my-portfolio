@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import siteConfig from "../../config.json";
 
@@ -48,9 +51,9 @@ export default function Home() {
         </div>
 
         <div className="flex-1 flex justify-end">
-          <a 
-            href={siteConfig.personal.cvPath} 
-            download 
+          <a
+            href={siteConfig.personal.cvPath}
+            download
             className="bg-primary text-white px-8 py-3 rounded-md text-sm font-semibold hover:bg-opacity-90 transition-all shadow-lg shadow-primary/20 whitespace-nowrap"
           >
             Download CV
@@ -96,7 +99,7 @@ export default function Home() {
               priority
             />
           </div>
-          
+
           {/* Social Links Vertical */}
           <div className="absolute right-0 lg:-right-8 top-1/2 -translate-y-1/2 flex flex-col items-center gap-6 text-textMuted">
             <span className="[writing-mode:vertical-lr] text-[10px] tracking-[0.3em] uppercase mb-8">
@@ -161,7 +164,7 @@ export default function Home() {
             </Link>
           ))}
         </div>
-        
+
 
       </section>
 
@@ -176,7 +179,7 @@ export default function Home() {
 
         <div className="relative">
           <div className="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-card -translate-y-1/2"></div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
             {siteConfig.experiences.timeline.map((exp: TimelineItem, idx: number) => (
               <div key={idx} className="flex flex-col items-center group">
@@ -234,14 +237,26 @@ export default function Home() {
 
           <div className="bg-card p-8 rounded-2xl border border-card/50">
             <h3 className="text-2xl font-bold text-textMain mb-8">Drop a Line</h3>
-            <form className="space-y-6">
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                const formData = new FormData(e.currentTarget);
+                const name = formData.get("name");
+                const email = formData.get("email");
+                const subject = formData.get("subject");
+                const message = formData.get("message");
+                const mailtoUrl = `mailto:${siteConfig.contact.info.email}?subject=${encodeURIComponent(subject as string)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`)}`;
+                window.location.href = mailtoUrl;
+              }}
+              className="space-y-6"
+            >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <input type="text" placeholder="Your Name" className="bg-background border border-card rounded-md px-4 py-3 text-textMain focus:outline-none focus:border-primary/50 transition-colors w-full" />
-                <input type="email" placeholder="Your Email" className="bg-background border border-card rounded-md px-4 py-3 text-textMain focus:outline-none focus:border-primary/50 transition-colors w-full" />
+                <input name="name" type="text" placeholder="Your Name" required className="bg-background border border-card rounded-md px-4 py-3 text-textMain focus:outline-none focus:border-primary/50 transition-colors w-full" />
+                <input name="email" type="email" placeholder="Your Email" required className="bg-background border border-card rounded-md px-4 py-3 text-textMain focus:outline-none focus:border-primary/50 transition-colors w-full" />
               </div>
-              <input type="text" placeholder="Subject" className="bg-background border border-card rounded-md px-4 py-3 text-textMain focus:outline-none focus:border-primary/50 transition-colors w-full" />
-              <textarea placeholder="Message" rows={4} className="bg-background border border-card rounded-md px-4 py-3 text-textMain focus:outline-none focus:border-primary/50 transition-colors w-full resize-none"></textarea>
-              <button type="button" className="bg-primary text-white px-8 py-3 rounded-md font-semibold hover:bg-opacity-90 transition-all shadow-lg shadow-primary/20">
+              <input name="subject" type="text" placeholder="Subject" required className="bg-background border border-card rounded-md px-4 py-3 text-textMain focus:outline-none focus:border-primary/50 transition-colors w-full" />
+              <textarea name="message" placeholder="Message" rows={4} required className="bg-background border border-card rounded-md px-4 py-3 text-textMain focus:outline-none focus:border-primary/50 transition-colors w-full resize-none"></textarea>
+              <button type="submit" className="bg-primary text-white px-8 py-3 rounded-md font-semibold hover:bg-opacity-90 transition-all shadow-lg shadow-primary/20">
                 Submit Now
               </button>
             </form>
