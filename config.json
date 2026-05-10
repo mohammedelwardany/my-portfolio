@@ -65,7 +65,7 @@
   ],
   "portfolio": {
     "title": "Portfolio",
-    "description": "Here are some of my favorite projects. Each project includes a description of the problem I was solving, the technologies I used, and the results I achieved.",
+    "description": "",
     "projects": [
       {
         "id": 1,
