@@ -99,7 +99,7 @@
   },
   "experiences": {
     "title": "My Experiences",
-    "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.",
+    "description": "",
     "timeline": [
       {
         "year": "2021-2026",
@@ -125,7 +125,7 @@
   },
   "contact": {
     "title": "Contact Us",
-    "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.",
+    "description": "",
     "info": {
       "phone": "+201013465050",
       "email": "mohammedelwardany2023@gmail.com",
