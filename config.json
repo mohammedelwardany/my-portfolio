@@ -18,6 +18,10 @@
       "href": "#services"
     },
     {
+      "name": "Skills",
+      "href": "#skills"
+    },
+    {
       "name": "Portfolio",
       "href": "#portfolio"
     },
@@ -33,7 +37,7 @@
   "personal": {
     "name": "Mohammed El-Wardany",
     "role": "Full Stack Developer",
-    "description": "Results-driven Full-Stack Engineer (Node.js, Next.js, PostgreSQL) with experience building mission-critical systems at the Egyptian Space Agency. Proficient in AI-assisted development & Vibe Coding architecture. Adept at transforming complex requirements into secure, scalable, and high-performance applications.",
+    "description": "Full Stack Developer skilled in JavaScript, Node.js, and React, with a degree in Computer Science and a focus on building responsive, scalable web applications. Experienced in agile development, code reviews, and cross-functional collaboration. Looking to work on impactful, large-scale projects to deepen my full-stack expertise and grow my software engineering skills.",
     "avatar": "/avatarv2.png",
     "cvPath": "/my-cv.pdf",
     "socials": {
@@ -72,28 +76,80 @@
         "title": "PM Academy",
         "category": "PMP Courses Platform and Exam Semulation",
         "image": "/pm-academy.jpg",
-        "link": "https://pm-academy.org/"
+        "link": "https://pm-academy.org/",
+        "technologies": [
+          "Next.js",
+          "Node.js",
+          "Redux",
+          "PostgreSQL",
+          "Express"
+        ]
       },
       {
         "id": 2,
         "title": "H2A Medical Solutions",
         "category": "Philops Patener Medical Equipment Store and Maintenance",
         "image": "/h2a-midical-solutions.jpg",
-        "link": "https://www.h2amedics.com/"
+        "link": "https://www.h2amedics.com/",
+        "technologies": [
+          "Next.js",
+          "Tailwind CSS",
+          "Node.js",
+          "Redux",
+          "MongoDB",
+          "Express"
+        ]
       },
       {
         "id": 3,
         "title": "Teeba Digital Transformation",
         "category": "Software and Cloud Solutions Provider",
         "image": "/teeba-digital-transformation.jpg",
-        "link": "https://teebasystems.com.eg/"
+        "link": "https://teebasystems.com.eg/",
+        "technologies": [
+          "React",
+          "Tailwind CSS"
+        ]
       },
       {
         "id": 4,
         "title": "Quantum IT Solutions",
         "category": "Software and Hardware Solutions Provider",
         "image": "/quantum.jpg",
-        "link": "https://quantumexperment.vercel.app/"
+        "link": "https://quantumexperment.vercel.app/",
+        "technologies": [
+          "React",
+          "Redux",
+          "Python",
+          "Flask",
+          "Tailwind CSS"
+        ]
+      }
+    ]
+  },
+  "skills": {
+    "title": "Technical Skills",
+    "description": "My professional skillset and toolset that I use to bring ideas to life.",
+    "categories": [
+      {
+        "name": "Frontend",
+        "items": ["JavaScript (ES6+)", "React.js", "Next.js", "React Native", "Redux/Context API", "Tailwind CSS"]
+      },
+      {
+        "name": "Backend",
+        "items": ["Node.js", "Express.js", "RESTful APIs", "Python (Familiar)"]
+      },
+      {
+        "name": "Databases & ORM",
+        "items": ["PostgreSQL", "MongoDB", "Prisma"]
+      },
+      {
+        "name": "Tools & Architecture",
+        "items": ["Git/Gitee", "Figma (UI/UX Implementation)", "i18n (Localization)"]
+      },
+      {
+        "name": "AI & Productivity",
+        "items": ["Vibe Coding workflows", "AI-assisted development (Cursor/Copilot)"]
       }
     ]
   },

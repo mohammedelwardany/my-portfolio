@@ -3,8 +3,72 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { FaLinkedin, FaGithub } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaCode, FaServer, FaDatabase, FaTools, FaMagic } from "react-icons/fa";
+import {
+  SiNextdotjs,
+  SiNodedotjs,
+  SiPostgresql,
+  SiTypescript,
+  SiReact,
+  SiTailwindcss,
+  SiMongodb,
+  SiRedux,
+  SiPython,
+  SiFlask,
+  SiJavascript,
+  SiExpress,
+  SiPrisma,
+  SiDocker,
+  SiVercel,
+  SiVite
+} from "react-icons/si";
 import siteConfig from "../../config.json";
+
+const techIcons: { [key: string]: React.ComponentType<any> } = {
+  "Next.js": SiNextdotjs,
+  "Node.js": SiNodedotjs,
+  "PostgreSQL": SiPostgresql,
+  "TypeScript": SiTypescript,
+  "React": SiReact,
+  "Tailwind CSS": SiTailwindcss,
+  "MongoDB": SiMongodb,
+  "Redux": SiRedux,
+  "Python": SiPython,
+  "Flask": SiFlask,
+  "JavaScript": SiJavascript,
+  "Express": SiExpress,
+  "Prisma": SiPrisma,
+  "Docker": SiDocker,
+  "Vercel": SiVercel,
+  "Vite": SiVite,
+};
+
+const techColors: { [key: string]: string } = {
+  "Next.js": "text-white",
+  "Node.js": "text-[#339933]",
+  "PostgreSQL": "text-[#4169e1]",
+  "TypeScript": "text-[#3178c6]",
+  "React": "text-[#61dafb]",
+  "Tailwind CSS": "text-[#06b6d4]",
+  "MongoDB": "text-[#47a248]",
+  "Redux": "text-[#764abc]",
+  "Python": "text-[#3776ab]",
+  "Flask": "text-white",
+  "JavaScript": "text-[#f7df1e]",
+  "Express": "text-white",
+  "Prisma": "text-white",
+  "Docker": "text-[#2496ed]",
+  "Vercel": "text-white",
+  "Vite": "text-[#646cff]",
+};
+
+const categoryIcons: { [key: string]: React.ComponentType<any> } = {
+  "Frontend": FaCode,
+  "Backend": FaServer,
+  "Databases & ORM": FaDatabase,
+  "Tools & Architecture": FaTools,
+  "AI & Productivity": FaMagic,
+};
 
 interface NavItem {
   name: string;
@@ -23,6 +87,7 @@ interface ProjectItem {
   category: string;
   image: string;
   link?: string;
+  technologies?: string[];
 }
 
 interface TimelineItem {
@@ -185,6 +250,51 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Technical Skills Section */}
+      <section id="skills" className="py-16 md:py-24 border-b border-card/50 scroll-mt-20">
+        <div className="text-center max-w-2xl mx-auto mb-12 md:mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-textMain mb-4 md:mb-6">{siteConfig.skills.title}</h2>
+          <p className="text-textMuted text-base md:text-lg">
+            {siteConfig.skills.description}
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          {siteConfig.skills.categories.map((category: any, idx: number) => {
+            const Icon = categoryIcons[category.name] || FaCode;
+            return (
+              <div 
+                key={idx} 
+                className={`bg-card p-6 md:p-8 rounded-2xl border border-card/50 hover:border-primary/30 transition-all duration-300 shadow-xl group flex flex-col ${
+                  idx === 3 ? "lg:col-span-1 md:col-span-1" : ""
+                } ${
+                  idx === 4 ? "lg:col-span-2 md:col-span-2 lg:flex-row lg:items-center lg:justify-between gap-6" : ""
+                }`}
+              >
+                <div className={idx === 4 ? "lg:max-w-xs" : ""}>
+                  <div className="flex items-center gap-3 mb-4 md:mb-6">
+                    <div className="w-10 h-10 rounded-xl bg-background flex items-center justify-center text-primary group-hover:scale-110 group-hover:bg-primary/10 transition-all duration-300">
+                      <Icon className="w-5 h-5" />
+                    </div>
+                    <h3 className="text-lg md:text-xl font-bold text-textMain">{category.name}</h3>
+                  </div>
+                </div>
+                <div className={`flex flex-wrap gap-2 ${idx === 4 ? "lg:flex-1 lg:justify-end" : ""}`}>
+                  {category.items.map((item: string, sIdx: number) => (
+                    <span 
+                      key={sIdx}
+                      className="px-3 py-1.5 rounded-lg bg-background/50 border border-card/85 text-xs md:text-sm text-textMuted hover:text-textMain hover:border-primary/30 hover:bg-card transition-colors duration-300 font-medium"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
       {/* Portfolio Section */}
       <section id="portfolio" className="py-16 md:py-24 scroll-mt-20">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 md:mb-16 gap-6 md:gap-8 text-center md:text-left">
@@ -213,6 +323,27 @@ export default function Home() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
                 </h3>
+                {project.technologies && project.technologies.length > 0 && (
+                  <div className="flex flex-wrap gap-2 mt-3 z-20">
+                    {project.technologies.map((tech: string) => {
+                      const IconComponent = techIcons[tech];
+                      const colorClass = techColors[tech] || "text-textMain";
+                      return (
+                        <span
+                          key={tech}
+                          className="flex items-center justify-center w-8 h-8 rounded-full bg-white/10 backdrop-blur-md border border-white/5 shadow-sm hover:scale-110 hover:bg-white/20 hover:border-primary/40 transition-all duration-300"
+                          title={tech}
+                        >
+                          {IconComponent ? (
+                            <IconComponent className={`w-4 h-4 ${colorClass}`} />
+                          ) : (
+                            <span className="text-[10px] font-semibold text-textMain">{tech}</span>
+                          )}
+                        </span>
+                      );
+                    })}
+                  </div>
+                )}
               </div>
             </Link>
           ))}
