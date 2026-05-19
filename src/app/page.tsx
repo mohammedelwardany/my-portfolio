@@ -24,7 +24,7 @@ import {
 } from "react-icons/si";
 import siteConfig from "../../config.json";
 
-const techIcons: { [key: string]: React.ComponentType<any> } = {
+const techIcons: { [key: string]: React.ComponentType<{ className?: string }> } = {
   "Next.js": SiNextdotjs,
   "Node.js": SiNodedotjs,
   "PostgreSQL": SiPostgresql,
@@ -62,7 +62,7 @@ const techColors: { [key: string]: string } = {
   "Vite": "text-[#646cff]",
 };
 
-const categoryIcons: { [key: string]: React.ComponentType<any> } = {
+const categoryIcons: { [key: string]: React.ComponentType<{ className?: string }> } = {
   "Frontend": FaCode,
   "Backend": FaServer,
   "Databases & ORM": FaDatabase,
@@ -94,6 +94,11 @@ interface TimelineItem {
   year: string;
   title: string;
   description: string;
+}
+
+interface SkillCategory {
+  name: string;
+  items: string[];
 }
 
 export default function Home() {
@@ -260,7 +265,7 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {siteConfig.skills.categories.map((category: any, idx: number) => {
+          {siteConfig.skills.categories.map((category: SkillCategory, idx: number) => {
             const Icon = categoryIcons[category.name] || FaCode;
             return (
               <div 
